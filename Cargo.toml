@@ -1,6 +1,30 @@
 [package]
-name = "SolitudeInSolace"
+name = "SolaceInSolitude"
 version = "0.1.0"
 edition = "2024"
+authors = ["Hopeflea", "Syborg64"]
+
+# Enable a small amount of optimization in the dev profile.
+[profile.dev]
+opt-level = 1
+debug = "line-tables-only"
+
+# Enable a large amount of optimization in the dev profile for dependencies.
+[profile.dev.package."*"]
+opt-level = 3
+debug = false
+
+[profile.debugging]
+inherits = "dev"
+debug = true
 
 [dependencies]
+bevy = { version = "0.18.0", features = [
+    "dynamic_linking",
+    "3d",
+    "wav",
+    "mp3",
+    "bevy_ui_debug",
+    "bevy_dev_tools",
+] }
+rand = "0.10.0"

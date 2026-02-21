@@ -18,6 +18,12 @@ debug = false
 inherits = "dev"
 debug = true
 
+[features]
+editor = ["dep:bevy_editor"]
+
+# [patch."https://github.com/Agartha-Software/bevy_editor_prototypes.git"]
+# bevy_editor = { path = "../bevy_editor_prototypes/crates/bevy_editor", version = "0.1.0" }
+
 [dependencies]
 bevy = { version = "0.18.0", features = [
     "dynamic_linking",
@@ -27,4 +33,5 @@ bevy = { version = "0.18.0", features = [
     "bevy_ui_debug",
     "bevy_dev_tools",
 ] }
+bevy_editor = { git = "https://github.com/Agartha-Software/bevy_editor_prototypes.git", version = "0.1.0", optional = true }
 rand = "0.10.0"

@@ -1,8 +1,9 @@
+mod editor;
 mod world;
 
 use bevy::prelude::*;
 
-use crate::world::WorldPlugin;
+use crate::{editor::EditorPlugin, world::WorldPlugin};
 
 fn main() {
     App::new()
@@ -18,6 +19,7 @@ fn main() {
                     ..default()
                 }),
             WorldPlugin,
+            EditorPlugin,
         ))
         .run();
 }

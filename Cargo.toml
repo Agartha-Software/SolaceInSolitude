@@ -25,9 +25,8 @@ editor = ["dep:bevy_editor"]
 # bevy_editor = { path = "../bevy_editor_prototypes/crates/bevy_editor", version = "0.1.0" }
 
 [dependencies]
-bevy = { version = "0.18.0", features = [
+bevy = { git = "https://github.com/cart/bevy.git", rev = "87a21ecafa51bfaea02834b5933f08397b45b984", features = [
     "dynamic_linking",
-    "3d",
     "wav",
     "mp3",
     "bevy_ui_debug",

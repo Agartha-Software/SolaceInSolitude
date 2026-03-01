@@ -1,6 +1,5 @@
-use bevy::{math::Affine2, prelude::*};
-
 use crate::{GameState, loading::MainAssets};
+use bevy::{math::Affine2, prelude::*};
 
 pub struct WorldPlugin;
 

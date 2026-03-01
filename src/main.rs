@@ -3,6 +3,7 @@ mod loading;
 mod world;
 
 use bevy::prelude::*;
+use bevy_skein::SkeinPlugin;
 
 use crate::{editor::EditorPlugin, loading::LoadingPlugin, world::WorldPlugin};
 
@@ -28,6 +29,11 @@ fn main() {
                 }),
         )
         .init_state::<GameState>()
-        .add_plugins((WorldPlugin, LoadingPlugin, EditorPlugin))
+        .add_plugins((
+            WorldPlugin,
+            LoadingPlugin,
+            EditorPlugin,
+            SkeinPlugin::default(),
+        ))
         .run();
 }

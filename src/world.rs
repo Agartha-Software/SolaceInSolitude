@@ -37,4 +37,6 @@ fn spawn_world(
         },
         Transform::from_xyz(4.0, 8.0, 4.0),
     ));
+
+    commands.spawn(SceneRoot(assets.scene.clone()));
 }

@@ -20,4 +20,6 @@ pub struct MainAssets {
     #[asset(path = "ColorGrid.png")]
     #[asset(image(sampler(filter = nearest, wrap = repeat)))]
     pub color_grid: Handle<Image>,
+    #[asset(path = "scene.glb#Scene0")]
+    pub scene: Handle<Scene>,
 }

@@ -27,4 +27,5 @@ bevy = { version = "0.18.0", features = [
     "bevy_ui_debug",
     "bevy_dev_tools",
 ] }
+bevy_asset_loader = { version = "0.25.0", features = ["3d"] }
 rand = "0.10.0"

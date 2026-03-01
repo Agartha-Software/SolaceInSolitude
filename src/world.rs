@@ -1,37 +1,23 @@
-use bevy::{
-    image::{ImageAddressMode, ImageLoaderSettings, ImageSampler, ImageSamplerDescriptor},
-    math::Affine2,
-    prelude::*,
-};
+use bevy::{math::Affine2, prelude::*};
+
+use crate::{GameState, loading::MainAssets};
 
 pub struct WorldPlugin;
 
 impl Plugin for WorldPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(Startup, (spawn_world,));
+        app.add_systems(OnEnter(GameState::Game), spawn_world);
     }
 }
 
 fn spawn_world(
     mut commands: Commands,
-    asset_server: Res<AssetServer>,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
+    assets: Res<MainAssets>,
 ) {
-    let texture_handle = asset_server.load_with_settings("ColorGrid.png", |s: &mut _| {
-        *s = ImageLoaderSettings {
-            sampler: ImageSampler::Descriptor(ImageSamplerDescriptor {
-                address_mode_u: ImageAddressMode::Repeat,
-                address_mode_v: ImageAddressMode::Repeat,
-                ..default()
-            }),
-
-            ..default()
-        }
-    });
-
     let material_handle = materials.add(StandardMaterial {
-        base_color_texture: Some(texture_handle.clone()),
+        base_color_texture: Some(assets.color_grid.clone()),
         alpha_mode: AlphaMode::Blend,
         unlit: true,
         uv_transform: Affine2::from_scale(Vec2::new(100., 100.)),

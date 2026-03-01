@@ -1,11 +1,15 @@
 mod editor;
 mod loading;
+mod player;
 mod world;
 
+use avian3d::prelude::*;
 use bevy::prelude::*;
 use bevy_skein::SkeinPlugin;
 
-use crate::{editor::EditorPlugin, loading::LoadingPlugin, world::WorldPlugin};
+use crate::{
+    editor::EditorPlugin, loading::LoadingPlugin, player::PlayerPlugin, world::WorldPlugin,
+};
 
 #[derive(Clone, Eq, PartialEq, Debug, Hash, Default, States)]
 enum GameState {
@@ -33,7 +37,9 @@ fn main() {
             WorldPlugin,
             LoadingPlugin,
             EditorPlugin,
+            PlayerPlugin,
             SkeinPlugin::default(),
+            PhysicsPlugins::default(),
         ))
         .run();
 }

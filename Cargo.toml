@@ -30,3 +30,4 @@ bevy = { version = "0.18.0", features = [
 bevy_asset_loader = { version = "0.25.0", features = ["3d"] }
 bevy_skein = "0.5.0"
 rand = "0.10.0"
+avian3d = "0.5.0"

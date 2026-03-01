@@ -1,7 +1,9 @@
+mod display;
 mod flycam;
 mod keybinds;
 
 use bevy::prelude::*;
+use display::DisplayPlugin;
 use flycam::FlyCamPlugin;
 use keybinds::KeybindsPlugin;
 
@@ -9,7 +11,7 @@ pub struct EditorPlugin;
 
 impl Plugin for EditorPlugin {
     fn build(&self, app: &mut App) {
-        app.add_plugins((FlyCamPlugin, KeybindsPlugin))
+        app.add_plugins((FlyCamPlugin, KeybindsPlugin, DisplayPlugin))
             .add_systems(Startup, spawn_editor);
     }
 }

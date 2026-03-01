@@ -23,7 +23,7 @@ fn spawn_player(
             y: 2.,
             z: 0.,
         }),
-        Collider::capsule(0.5, 0.5),
+        Collider::capsule(0.5, 1.),
         RigidBody::Dynamic,
         LinearVelocity::default(),
         MeshMaterial3d(materials.add(StandardMaterial {

@@ -18,6 +18,7 @@ pub struct EditorKeyBindings {
     pub move_ascend: KeyCode,
     pub move_descend: KeyCode,
     pub toggle_grab_cursor: KeyCode,
+    pub toggle_debug_display: KeyCode,
 }
 
 impl Default for EditorKeyBindings {
@@ -30,6 +31,7 @@ impl Default for EditorKeyBindings {
             move_ascend: KeyCode::Space,
             move_descend: KeyCode::ShiftLeft,
             toggle_grab_cursor: KeyCode::Escape,
+            toggle_debug_display: KeyCode::F1,
         }
     }
 }
